@@ -1,15 +1,19 @@
-function GetLang()
-   return Config.language
+function SpawnModel(model, location)
+    RequestModel(model)
+    while not HasModelLoaded(model) do
+        Wait(0)
+    end
+
+
+    local entity = CreatePed(1, model, location.x, location.y, location.z - 1, location.w, false, false)
+    FreezeEntityPosition(entity, true)
+    SetEntityInvincible(entity, true)
+
+    return entity
 end
 
-function getImageURL(item)
-   if Config.inventory == "qb" then
-       return ("https://cfx-nui-qb-inventory/html/images/%s.png"):format(item)
-   elseif Config.inventory == "ox" then
-       return ("https://cfx-nui-ox_inventory/web/images/%s.png"):format(item)
-   end
+function RemoveModel()
+    DeleteEntity()
 end
 
-
-exports("getImageURL", getImageURL)
-exports("GetLang", GetLang)
+exports("SpawnModel", SpawnModel)

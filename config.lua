@@ -22,7 +22,7 @@ Config.notify = "ox"
 
 --[[
     qb
-    ox
+    ox      
 ]]--
 Config.inventory = "ox"
 

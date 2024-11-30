@@ -1,0 +1,1 @@
+local Inventory = Config.core
